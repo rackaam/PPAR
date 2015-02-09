@@ -62,6 +62,8 @@ int main()
 	// Version 1
 	// #pragma omp parallel shared(a, b, res) private(j, h, temp, me)
 	// {
+		// Chaque thread utilise son ID pour determiner quelles lignes utiliser.
+		// Necessite autant de thread que de ligne dans les matrices (omp_set_num_threads(N);)
 	// 	me = omp_get_thread_num();
 	// 	// printf("me=%d\n", me);
 	// 	for(j = 0; j < N; j++)
@@ -80,6 +82,8 @@ int main()
 	//Version 2
 	#pragma omp parallel shared(a, b, res) private(i, j, h, temp, me)
 	{
+		// Le calcul est partagé entre les 4 threads
+		// Le code est similaire à celui d'un calcul séquentiel.
 		#pragma omp for schedule(static) 
 		for(i = 0; i < N; i++)
 		{
@@ -90,6 +94,8 @@ int main()
 				{
 					temp += a[i][h] * b[h][j];
 				}
+				// Chaque thread calcul plusieurs valeurs de la matrice finale.
+				// Il n'y a pas d'écriture concurrent sur la même case de la matrice finale.
 				res[i][j] = temp;
 			}
 		}
@@ -110,6 +116,5 @@ int main()
 	// 	}
 	// 	printf("\n");
 	// }
-	printf("Termine\n");
 }
 

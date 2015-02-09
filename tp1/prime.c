@@ -27,33 +27,34 @@ int main()
 	{
 		int nb = omp_get_thread_num();
 		int h;
-		while((h = i + nb) < N_ROOT)
+		// On utilise une boucle que l'on incrémente du nombre de threads à chaque itération.
+		// A chaque itération, chaque thread vérifie si h est premier, et si necessaire, 
+		// supprime les multiples de h. 
+		while((h = i + nb) < N_ROOT) // Il suffit d'itérer jusqu'a la racine carré de N
 		{
 			if(tab[h] == 1)
 			{
 				for(j=2; j * h < N; j++)
 				{
-					tab[h*j]= 0;	
+					tab[h*j] = 0;	
 				}
 			}
-			#pragma omp master
+			#pragma omp master // Seul le thread principal incrémente i à chaque itération
 			{
 				i += omp_get_num_threads();
 			}
 		}
 	}
 
-#pragma omp parallel shared(tab) private(i)
+	#pragma omp parallel shared(tab) private(i)
 	{
 		#pragma omp for schedule(static)
 		for(i=2; i<N; i++)
 		{
 			if(tab[i] == 1)
 			{
-				#pragma omp critical 
-				{
+				#pragma omp atomic // L'incrémentation peut être réalisée de façon atomique
 					nb_prime++;
-				}
 			}
 		}	
 	}
