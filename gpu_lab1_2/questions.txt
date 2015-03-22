@@ -1,0 +1,18 @@
+2.
+Plus n est grand, plus la valeur de (+-1)/(i=1) est petite et necessite de la précision.
+Quand le calcul est effectué avec des valeures de i décroissante, la somme est encore composée uniquement de ces petits nombres necessitant de la précision.
+Quand le calcul est effectué avec des valeures de i croissante, la somme contient dejà les premiers résultats, qui sont bien plus grands que les résultats avec i proche de n.
+Il y a donc moins de bits pouvant être dédiés à la précision du nombre flottant.
+
+3.
+	-Partage par "bloque"
+	Exemple: n=1000, m=4
+		m0 calcul n=1-->n=250
+		m1 calcul n=251-->n=500
+		m2 calcul n=501-->n=750
+		m3 calcum n=750-->n=1000
+	-Exemple 2: n=1000n m=4
+		m0 calcul n=1, n=1+1*4, n=1+2*4....
+		m1 calcul n=2, n=2+1*4, n=2+2*4....
+		m2 calcul n=3, n=3+1*4, n=3+2*4....
+		m3 calcul n=4, n=4+1*4, n=4+2*4....

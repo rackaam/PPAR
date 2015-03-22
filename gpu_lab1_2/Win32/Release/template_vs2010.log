@@ -1,0 +1,122 @@
+﻿Build started 20/03/2015 12:56:39.
+     1>Project "H:\windows\gpu_lab1_2\template_vs2010.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Win32/Release/summation.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       AddCudaCompileDeps:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /D_MBCS /I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin" /I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I. /FIcuda_runtime.h /c H:\windows\gpu_lab1_2\summation.cu 
+       AddCudaCompileDeps:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /D_MBCS /I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin" /I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I. /FIcuda_runtime.h /c H:\windows\gpu_lab1_2\utils.cu 
+       CudaBuild:
+         Compiling CUDA source file summation.cu...
+         cmd.exe /C "C:\Users\15005180\AppData\Local\Temp\tmp1af5f9176d1f4d4ea2f703582c44cd1d.cmd"
+         "c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" -gencode=arch=compute_35,code=\"sm_35,compute_35\" --use-local-env --cl-version 2010 -ccbin "C:\Program Files\Microsoft Visual Studio 10.0\VC\bin"  -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -DWIN32 -D_MBCS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MT  " -o "Win32/Release/summation.cu.obj" "H:\windows\gpu_lab1_2\summation.cu"
+         
+         H:\windows\gpu_lab1_2>"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" -gencode=arch=compute_35,code=\"sm_35,compute_35\" --use-local-env --cl-version 2010 -ccbin "C:\Program Files\Microsoft Visual Studio 10.0\VC\bin"  -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -DWIN32 -D_MBCS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MT  " -o "Win32/Release/summation.cu.obj" "H:\windows\gpu_lab1_2\summation.cu" 
+         summation.cu
+     1>H:/windows/gpu_lab1_2/summation.cu(49): warning : variable "results_size" was declared but never referenced
+         
+     1>H:/windows/gpu_lab1_2/summation.cu(50): warning : variable "data_out_cpu" was declared but never referenced
+         
+         summation.cu
+     1>H:/windows/gpu_lab1_2/summation.cu(49): warning : variable "results_size" was declared but never referenced
+         
+     1>H:/windows/gpu_lab1_2/summation.cu(50): warning : variable "data_out_cpu" was declared but never referenced
+         
+         tmpxft_000010ec_00000000-11_summation.compute_10.cudafe1.gpu
+         tmpxft_000010ec_00000000-17_summation.compute_10.cudafe2.gpu
+         summation.cu
+     1>H:/windows/gpu_lab1_2/summation.cu(49): warning : variable "results_size" was declared but never referenced
+         
+     1>H:/windows/gpu_lab1_2/summation.cu(50): warning : variable "data_out_cpu" was declared but never referenced
+         
+         tmpxft_000010ec_00000000-8_summation.compute_20.cudafe1.gpu
+         tmpxft_000010ec_00000000-21_summation.compute_20.cudafe2.gpu
+         summation.cu
+     1>H:/windows/gpu_lab1_2/summation.cu(49): warning : variable "results_size" was declared but never referenced
+         
+     1>H:/windows/gpu_lab1_2/summation.cu(50): warning : variable "data_out_cpu" was declared but never referenced
+         
+         tmpxft_000010ec_00000000-5_summation.compute_30.cudafe1.gpu
+         tmpxft_000010ec_00000000-25_summation.compute_30.cudafe2.gpu
+         tmpxft_000010ec_00000000-2_summation.compute_35.cudafe1.gpu
+         tmpxft_000010ec_00000000-28_summation.compute_35.cudafe2.gpu
+         summation.cu
+     1>H:/windows/gpu_lab1_2/summation.cu(49): warning : variable "results_size" was declared but never referenced
+         
+     1>H:/windows/gpu_lab1_2/summation.cu(50): warning : variable "data_out_cpu" was declared but never referenced
+         
+         summation.cu
+     1>H:/windows/gpu_lab1_2/summation.cu(49): warning : variable "results_size" was declared but never referenced
+         
+     1>H:/windows/gpu_lab1_2/summation.cu(50): warning : variable "data_out_cpu" was declared but never referenced
+         
+         summation.cu
+     1>H:/windows/gpu_lab1_2/summation.cu(49): warning : variable "results_size" was declared but never referenced
+         
+     1>H:/windows/gpu_lab1_2/summation.cu(50): warning : variable "data_out_cpu" was declared but never referenced
+         
+         summation.cu
+     1>H:/windows/gpu_lab1_2/summation.cu(49): warning : variable "results_size" was declared but never referenced
+         
+     1>H:/windows/gpu_lab1_2/summation.cu(50): warning : variable "data_out_cpu" was declared but never referenced
+         
+         tmpxft_000010ec_00000000-11_summation.compute_10.cudafe1.cpp
+         tmpxft_000010ec_00000000-39_summation.compute_10.ii
+     1>H:/windows/gpu_lab1_2/summation.cu(18): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>H:/windows/gpu_lab1_2/summation.cu(20): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>H:/windows/gpu_lab1_2/summation.cu(50): warning C4101: 'data_out_cpu' : unreferenced local variable
+       CudaBuild:
+         Compiling CUDA source file utils.cu...
+         cmd.exe /C "C:\Users\15005180\AppData\Local\Temp\tmp6acd2524791b4bf4ae512f816c0a1d95.cmd"
+         "c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" -gencode=arch=compute_35,code=\"sm_35,compute_35\" --use-local-env --cl-version 2010 -ccbin "C:\Program Files\Microsoft Visual Studio 10.0\VC\bin"  -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -DWIN32 -D_MBCS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MT  " -o "Win32/Release/utils.cu.obj" "H:\windows\gpu_lab1_2\utils.cu"
+         
+         H:\windows\gpu_lab1_2>"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" -gencode=arch=compute_35,code=\"sm_35,compute_35\" --use-local-env --cl-version 2010 -ccbin "C:\Program Files\Microsoft Visual Studio 10.0\VC\bin"  -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -DWIN32 -D_MBCS -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MT  " -o "Win32/Release/utils.cu.obj" "H:\windows\gpu_lab1_2\utils.cu" 
+         utils.cu
+     1>H:/windows/gpu_lab1_2/utils.cu(39): warning : variable "timerStart" was declared but never referenced
+         
+         utils.cu
+     1>H:/windows/gpu_lab1_2/utils.cu(39): warning : variable "timerStart" was declared but never referenced
+         
+         tmpxft_00001eac_00000000-11_utils.compute_10.cudafe1.gpu
+         tmpxft_00001eac_00000000-17_utils.compute_10.cudafe2.gpu
+         utils.cu
+     1>H:/windows/gpu_lab1_2/utils.cu(39): warning : variable "timerStart" was declared but never referenced
+         
+         tmpxft_00001eac_00000000-8_utils.compute_20.cudafe1.gpu
+         tmpxft_00001eac_00000000-21_utils.compute_20.cudafe2.gpu
+         utils.cu
+     1>H:/windows/gpu_lab1_2/utils.cu(39): warning : variable "timerStart" was declared but never referenced
+         
+         tmpxft_00001eac_00000000-5_utils.compute_30.cudafe1.gpu
+         tmpxft_00001eac_00000000-25_utils.compute_30.cudafe2.gpu
+         tmpxft_00001eac_00000000-2_utils.compute_35.cudafe1.gpu
+         tmpxft_00001eac_00000000-28_utils.compute_35.cudafe2.gpu
+         utils.cu
+     1>H:/windows/gpu_lab1_2/utils.cu(39): warning : variable "timerStart" was declared but never referenced
+         
+         utils.cu
+     1>H:/windows/gpu_lab1_2/utils.cu(39): warning : variable "timerStart" was declared but never referenced
+         
+         utils.cu
+     1>H:/windows/gpu_lab1_2/utils.cu(39): warning : variable "timerStart" was declared but never referenced
+         
+         utils.cu
+     1>H:/windows/gpu_lab1_2/utils.cu(39): warning : variable "timerStart" was declared but never referenced
+         
+         tmpxft_00001eac_00000000-11_utils.compute_10.cudafe1.cpp
+         tmpxft_00001eac_00000000-39_utils.compute_10.ii
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"win32/Release//summation.exe" /NOLOGO /LIBPATH:"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\lib\Win32" /LIBPATH:../../common/lib/Win32 cudart.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Win32/Release/summation.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"H:\windows\gpu_lab1_2\win32\Release\summation.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"win32/Release/summation.lib" /MACHINE:X86 Win32/Release/summation.cu.obj
+         Win32/Release/utils.cu.obj
+         LINK : /LTCG specified but no code generation required; remove /LTCG from the link command line to improve linker performance
+         template_vs2010.vcxproj -> H:\windows\gpu_lab1_2\win32/Release/summation.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"win32/Release//summation.exe;#1" /manifest Win32/Release/summation.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Win32/Release/summation.unsuccessfulbuild".
+         Touching "Win32/Release/summation.lastbuildstate".
+     1>Done Building Project "H:\windows\gpu_lab1_2\template_vs2010.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:35.05
