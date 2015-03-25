@@ -65,11 +65,6 @@ int main(int argc, char ** argv)
     CUDA_SAFE_CALL(cudaEventCreate(&start));
     CUDA_SAFE_CALL(cudaEventCreate(&stop));
 
-    int results_size = num_threads;
-    float * data_out_cpu;
-    // Allocating output data on CPU
-	float ab[] = {1515, 159};
-
 	// Allocating output data on GPU
     float *d_C;
 	cudaMalloc((void **)&d_C, num_threads * sizeof(float));
