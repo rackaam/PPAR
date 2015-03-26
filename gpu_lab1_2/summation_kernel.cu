@@ -75,3 +75,24 @@ __global__ void reduced_summation_kernel(int data_size, float * data_out)
 	if (tid == 0) 
 		data_out[blockIdx.x] = sdata[0];
 }
+
+//data_in : tableau de float à additioner
+//data_out : résultat des additions
+__global__ void reduced_array_summation(float * res, float * data_out)
+{
+	extern __shared__ float sdata[];
+	unsigned int tid = threadIdx.x;
+	sdata[tid] = res[tid];
+	__syncthreads();
+
+	for(unsigned int s = 1; s < blockDim.x; s *= 2) {
+		int index = 2 * s * tid;
+		if(index < blockDim.x) {
+			sdata[index] += sdata[index + s];
+		}
+		__syncthreads();
+	}
+
+	if (tid == 0)
+		*data_out = sdata[0];
+}

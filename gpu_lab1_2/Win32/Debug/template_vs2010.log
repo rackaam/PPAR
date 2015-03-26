@@ -1,4 +1,4 @@
-﻿Build started 25/03/2015 11:51:16.
+﻿Build started 26/03/2015 18:52:16.
      1>Project "H:\windows\PPAR\gpu_lab1_2\template_vs2010.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Win32/Debug/summation.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -12,22 +12,27 @@
        Skipping target "AddCudaCompilePropsDeps" because all output files are up-to-date with respect to the input files.
        CudaBuild:
          Compiling CUDA source file summation.cu...
-         cmd.exe /C "C:\Users\15005180\AppData\Local\Temp\tmp1070b769cc314417b45ebb6e672a857c.cmd"
+         cmd.exe /C "C:\Users\15005180\AppData\Local\Temp\tmpddf8b7edd5704df59f6fe61d0b35183d.cmd"
          "c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "C:\Program Files\Microsoft Visual Studio 10.0\VC\bin"  -I"./" -I"../../common/inc" -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -DWIN32 -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MTd  " -o "Win32/Debug/summation.cu.obj" "H:\windows\PPAR\gpu_lab1_2\summation.cu"
          
          H:\windows\PPAR\gpu_lab1_2>"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "C:\Program Files\Microsoft Visual Studio 10.0\VC\bin"  -I"./" -I"../../common/inc" -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"c:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -DWIN32 -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MTd  " -o "Win32/Debug/summation.cu.obj" "H:\windows\PPAR\gpu_lab1_2\summation.cu" 
          summation.cu
-         tmpxft_00001210_00000000-2_summation.cudafe1.gpu
-         tmpxft_00001210_00000000-7_summation.cudafe2.gpu
+     1>H:/windows/PPAR/gpu_lab1_2/summation.cu(163): warning : variable "i" was declared but never referenced
+         
+         tmpxft_00002754_00000000-2_summation.cudafe1.gpu
+         tmpxft_00002754_00000000-7_summation.cudafe2.gpu
          summation.cu
-         ptxas C:/Users/15005180/AppData/Local/Temp/tmpxft_00001210_00000000-4_summation.ptx, line 99; : warning : Double is not supported. Demoting to float
-         tmpxft_00001210_00000000-2_summation.cudafe1.cpp
-         tmpxft_00001210_00000000-12_summation.ii
+     1>H:/windows/PPAR/gpu_lab1_2/summation.cu(163): warning : variable "i" was declared but never referenced
+         
+         ptxas C:/Users/15005180/AppData/Local/Temp/tmpxft_00002754_00000000-4_summation.ptx, line 99; : warning : Double is not supported. Demoting to float
+         tmpxft_00002754_00000000-2_summation.cudafe1.cpp
+         tmpxft_00002754_00000000-12_summation.ii
      1>H:/windows/PPAR/gpu_lab1_2/summation.cu(18): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
      1>H:/windows/PPAR/gpu_lab1_2/summation.cu(20): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
      1>H:/windows/PPAR/gpu_lab1_2/summation.cu(31): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
      1>H:/windows/PPAR/gpu_lab1_2/summation.cu(33): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-         Deleting file "tmpxft_00001210_00000000-8_summation.cpp3.o".
+     1>H:/windows/PPAR/gpu_lab1_2/summation.cu(163): warning C4101: 'i' : unreferenced local variable
+         Deleting file "tmpxft_00002754_00000000-8_summation.cpp3.o".
        CudaBuild:
        Skipping target "CudaBuild" because all output files are up-to-date with respect to the input files.
        Link:
@@ -44,4 +49,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:07.09
+Time Elapsed 00:00:05.64

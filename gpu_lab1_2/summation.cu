@@ -158,6 +158,77 @@ void reduced_gpu_summation(int data_size)
     CUDA_SAFE_CALL(cudaEventDestroy(stop));
 }
 
+void full_gpu_summation(int data_size)
+{
+	int i;
+    // Parameter definition
+    int threads_per_block = 16 * 32;
+    int blocks_in_grid = 8;
+
+    // Timer initialization
+    cudaEvent_t start, stop;
+    CUDA_SAFE_CALL(cudaEventCreate(&start));
+    CUDA_SAFE_CALL(cudaEventCreate(&stop));
+
+	// Allocating output data on GPU
+    float *d_C;
+	cudaMalloc((void **)&d_C, blocks_in_grid * sizeof(float));
+
+	// Shared memory size
+	int smemSize = threads_per_block * sizeof(float);
+
+    // Start timer
+    CUDA_SAFE_CALL(cudaEventRecord(start, 0));
+
+    // Execute kernel
+    reduced_summation_kernel<<<blocks_in_grid, threads_per_block, smemSize>>>(data_size, d_C);
+
+    // Stop timer
+    CUDA_SAFE_CALL(cudaEventRecord(stop, 0));
+    CUDA_SAFE_CALL(cudaEventSynchronize(stop));
+
+    // Get results back
+	int resSize = blocks_in_grid * sizeof(float);
+    float* res = (float*)malloc(resSize);
+	cudaMemcpy(res, d_C, resSize, cudaMemcpyDeviceToHost);
+	
+	// On renvoie le tableau de résultats des threads au GPU (sur un seul block) pour faire la somme des résultats.
+	float *d_res, *d_sum_result;
+	cudaMalloc((void**)&d_res, resSize);
+	cudaMalloc((void**)&d_sum_result, sizeof(float));
+
+	cudaMemcpy(d_res, res, resSize, cudaMemcpyHostToDevice);
+
+	smemSize = blocks_in_grid * sizeof(float);
+    reduced_array_summation<<<1, blocks_in_grid, smemSize>>>(d_res, d_sum_result);
+
+	float sum_result;
+	cudaMemcpy(&sum_result, d_sum_result, sizeof(float), cudaMemcpyDeviceToHost);
+
+    printf("full GPU results:\n");
+    printf(" Sum: %.15f\n", sum_result);
+
+    // Cleanup
+	cudaFree(d_C);
+	cudaFree(d_res);
+	free(res);
+    
+    float elapsedTime;
+    CUDA_SAFE_CALL(cudaEventElapsedTime(&elapsedTime, start, stop));	// In ms
+
+    double total_time = elapsedTime / 1000.;	// s
+    double time_per_iter = total_time / (double)data_size;
+    double bandwidth = sizeof(float) / time_per_iter; // B/s
+    
+    printf(" Total time: %g s,\n Per iteration: %g ns\n Throughput: %g GB/s\n",
+    	total_time,
+    	time_per_iter * 1.e9,
+    	bandwidth / 1.e9);
+  
+    CUDA_SAFE_CALL(cudaEventDestroy(start));
+    CUDA_SAFE_CALL(cudaEventDestroy(stop));
+}
+
 int main(int argc, char ** argv)
 {
     int data_size = 1024 * 1024 * 128;
@@ -178,6 +249,7 @@ int main(int argc, char ** argv)
     printf(" time=%fs (reverse)\n", r_end_time - r_start_time);
     
 	reduced_gpu_summation(data_size);
+	// full_gpu_summation(data_size);
 
     return 0;
 }
