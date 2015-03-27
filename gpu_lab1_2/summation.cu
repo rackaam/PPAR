@@ -186,21 +186,14 @@ void full_gpu_summation(int data_size)
     // Stop timer
     CUDA_SAFE_CALL(cudaEventRecord(stop, 0));
     CUDA_SAFE_CALL(cudaEventSynchronize(stop));
-
-    // Get results back
-	int resSize = blocks_in_grid * sizeof(float);
-    float* res = (float*)malloc(resSize);
-	cudaMemcpy(res, d_C, resSize, cudaMemcpyDeviceToHost);
 	
-	// On renvoie le tableau de résultats des threads au GPU (sur un seul block) pour faire la somme des résultats.
-	float *d_res, *d_sum_result;
-	cudaMalloc((void**)&d_res, resSize);
+	// On utilise un second float pour stocker le résultat de la somme des résultats précédents
+	float *d_sum_result;
 	cudaMalloc((void**)&d_sum_result, sizeof(float));
 
-	cudaMemcpy(d_res, res, resSize, cudaMemcpyHostToDevice);
-
+	// Somme des résultats retournés par les blocs
 	smemSize = blocks_in_grid * sizeof(float);
-    reduced_array_summation<<<1, blocks_in_grid, smemSize>>>(d_res, d_sum_result);
+    reduced_array_summation<<<1, blocks_in_grid, smemSize>>>(d_C, d_sum_result);
 
 	float sum_result;
 	cudaMemcpy(&sum_result, d_sum_result, sizeof(float), cudaMemcpyDeviceToHost);
@@ -210,8 +203,7 @@ void full_gpu_summation(int data_size)
 
     // Cleanup
 	cudaFree(d_C);
-	cudaFree(d_res);
-	free(res);
+	cudaFree(d_sum_result);
     
     float elapsedTime;
     CUDA_SAFE_CALL(cudaEventElapsedTime(&elapsedTime, start, stop));	// In ms
@@ -248,8 +240,8 @@ int main(int argc, char ** argv)
     printf(" time=%fs\n", end_time - start_time);
     printf(" time=%fs (reverse)\n", r_end_time - r_start_time);
     
-	reduced_gpu_summation(data_size);
-	// full_gpu_summation(data_size);
+	//reduced_gpu_summation(data_size);
+	full_gpu_summation(data_size);
 
     return 0;
 }
